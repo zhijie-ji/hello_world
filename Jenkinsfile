@@ -80,7 +80,6 @@ pipeline {
             }
         }
         stage('Deliver') {
-                    agent any
                     //This environment block defines two variables which will be used later in the 'Deliver' stage.
 //                    environment {
 //                        VOLUME = '$(pwd)/sources:/src'
