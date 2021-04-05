@@ -6,7 +6,7 @@ pipeline {
     agent { 
         docker { 
             image 'python:3.7.2' 
-            args '-p 127.0.0.1:80:5000/tcp'
+            args '-p 0.0.0.0:5000:5000/tcp'
             } 
         }
     stages {
