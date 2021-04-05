@@ -40,7 +40,7 @@ pipeline {
                 //stash(name: 'compiled-results', includes: 'sources/*.py*')
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install --user flask'
-                    sh 'pip install gunicorn'
+                    sh 'pip install --user gunicorn'
                 }
             }
         }
