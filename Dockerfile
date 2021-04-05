@@ -1,19 +1,8 @@
-FROM jenkins/jenkins:alpine
-
-ENV JENKINS_USER admin
-ENV JENKINS_PASS admin
-
-# Skip initial setup
-ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
-
-
-COPY plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
-USER root
-RUN apk add docker
-RUN apk add py-pip
-RUN apk add python3-dev libffi-dev openssl-dev gcc libc-dev make
-RUN pip install cryptography==3.1.1
-RUN pip3 install docker-compose
+FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
+RUN apk --update add bash nano
+ENV STATIC_URL /static
+ENV STATIC_PATH /var/www/app/static
+COPY ./requirements.txt /var/www/requirements.txt
+RUN pip install -r /var/www/requirements.txt
 
 
