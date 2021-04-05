@@ -60,7 +60,10 @@ pipeline {
                 //which is saved to test-reports/results.xml
 //                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
                 echo "test begin"
-                sh 'python test.py'
+                
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'python test.py'
+                }
             }
             
             post {
@@ -96,7 +99,9 @@ pipeline {
 //                            //This bundles your add2vals.py Python application into a single standalone executable file
 //                            //and outputs this file to the dist workspace directory (within the Jenkins home directory).
 //                            sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'"
-                            sh 'python3 hello.py '
+                            withEnv(["HOME=${env.WORKSPACE}"]) {
+                                sh 'python hello.py'
+                            }
                         }
                     }
 //                    post {
