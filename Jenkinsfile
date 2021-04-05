@@ -6,7 +6,7 @@ pipeline {
     agent { 
         docker { 
             image 'python:3.7.2' 
-            args '--expose 5000:5000'
+            args '--expose 5000'
             } 
         }
     stages {
