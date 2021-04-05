@@ -3,7 +3,9 @@ pipeline {
 //None parameter in the agent section means that no global agent will be allocated for the entire Pipeline’s
 //execution and that each stage directive must specify its own agent section.
 
-    agent { docker { image 'python:3.7.2' } }
+    agent { docker { 
+        image 'python:3.7.2' 
+        agrs '-P 5000'} }
     stages {
         stage('Build') {
             
