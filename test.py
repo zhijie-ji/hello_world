@@ -1,5 +1,5 @@
 import unittest
-from app import hello
+from hello import app
 class TestHello(unittest.TestCase):
     def setUp(self):
         app.testing = True
@@ -7,6 +7,6 @@ class TestHello(unittest.TestCase):
     def test_hello(self):
         rv = self.app.get('/')
         self.assertEqual(rv.status, '200 OK')
-        self.assertEqual(rv.data, b'Hello World!\n')
+        self.assertEqual(rv.data, b'Hello World!')
 if __name__ == '__main__':
     unittest.main()
