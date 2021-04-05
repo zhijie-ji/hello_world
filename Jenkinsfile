@@ -101,7 +101,7 @@ pipeline {
 //                            sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'"
                             withEnv(["HOME=${env.WORKSPACE}"]) {
                                 //sh 'gunicorn -b 0.0.0.0:8000 app:hello'
-                                sh 'python hello.py'
+                                sh 'sudo python hello.py'
                             }
                         }
                     }
