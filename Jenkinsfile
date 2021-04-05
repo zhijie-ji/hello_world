@@ -3,12 +3,12 @@
 //    stages {
 //        stage('build') {
 //            steps {
-//                sh 'pip3 install flask'
+//                sh 'pip install flask'
 //            }
 //        }
 //        stage('deploy') {
 //            steps {
-//                sh 'python3 hello.py '
+//                sh 'python hello.py '
 //            }
 
 //        }
@@ -38,7 +38,7 @@ pipeline {
                 //This stash step saves the Python source code and compiled byte code files from the sources
                 //workspace directory for use in later stages.
                 //stash(name: 'compiled-results', includes: 'sources/*.py*')
-                sh 'pip3 install flask'
+                sh 'pip install flask'
             }
         }
 
