@@ -101,7 +101,7 @@ pipeline {
 //                            //and outputs this file to the dist workspace directory (within the Jenkins home directory).
 //                            sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'"
                             withEnv(["HOME=${env.WORKSPACE}"]) {
-                                gunicorn -b 0.0.0.0:8000 app:hello
+                                sh 'gunicorn -b 0.0.0.0:8000 app:hello'
                                 //sh 'python hello.py'
                             }
                         }
