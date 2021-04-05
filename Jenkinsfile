@@ -38,7 +38,7 @@ pipeline {
 
                             withEnv(["HOME=${env.WORKSPACE}"]) {
                                 sh 'python hello.py'
-                            }'
+                            }
                             
                         }
                     }
