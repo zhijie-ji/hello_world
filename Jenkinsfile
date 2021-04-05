@@ -38,7 +38,7 @@ pipeline {
                 //This stash step saves the Python source code and compiled byte code files from the sources
                 //workspace directory for use in later stages.
                 //stash(name: 'compiled-results', includes: 'sources/*.py*')
-                sh 'pip install flask'
+                sh 'virtualenv venv && . venv/bin/activate && pip install flask'
             }
         }
 
